@@ -9,10 +9,9 @@ async function handlegenerateNewShortURL(req, res) {
         redirectURL: body.url,
         visitHistory: [],
     });
-    const domain = req.get('host');
     return res.render("home", {
         id: shortID,
-        fullURL: `${req.protocol}://${domain}/url/${shortID}`
+        fullURL: `PROCESS.env.MONGO_URL/url/${shortID}`
     })
 }
 

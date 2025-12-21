@@ -15,7 +15,7 @@
     <% if(locals.id){ %>
     <p>
       URL Generated:
-      <a href="<%= locals.fullURL %>"><%= locals.fullURL %></a>
+      <a href="<%= PROCESS.env.MONGO_URL %>"><%= PROCESS.env.MONGO_URL%></a>
     </p>
     <% } %>
 
