@@ -2,14 +2,16 @@ const express = require('express');
 const path = require('path')
 const { connectDB } = require('./connect');
 const URL = require('./models/url')
-
+require('dotenv').config();
 const urlRoute = require('./routes/url')
 const staticRoute = require("./routes/staticRouter")
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
-connectDB('mongodb://localhost:27017/short-url').then(() => console.log('MongoDB connected'));
+connectDB(process.env.MONGO_URL)
+    .then(() => console.log('MongoDB Connected Successfully'))
+    .catch((err) => console.log('Mongo Connection Error', err));
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, 'views'));
