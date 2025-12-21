@@ -25,14 +25,6 @@ app.use('/url', urlRoute);
 app.use("/", staticRoute);
 
 
-// --- TEST ROUTE (Temporary testing ke liye theek hai) ---
-app.get("/test", async (req, res) => {
-    const allUrls = await URL.find({});
-    return res.render('home', {
-        urls: allUrls,
-    });
-})
-
 app.listen(PORT, () => {
     console.log(`Server Started at PORT:${PORT}`)
 })
