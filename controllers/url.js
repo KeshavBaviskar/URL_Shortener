@@ -9,11 +9,15 @@ async function handlegenerateNewShortURL(req, res) {
         redirectURL: body.url,
         visitHistory: [],
     });
- const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const fullShortUrl = `${baseUrl}/url/${shortID}`;
+   const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const fullShortUrl = `${baseUrl}/url/${shortID}`;
+
+    const allUrls = await URL.find({}); 
+    
     return res.render("home", {
         id: shortID,
-      shortURL: fullShortUrl,
+        shortURL: fullShortUrl,
+        urls: allUrls,
     })
 }
 
