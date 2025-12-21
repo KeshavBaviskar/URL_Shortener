@@ -12,10 +12,10 @@
   </head>
   <body>
     <h1>URL Shortener</h1>
-    <% if(locals.id){ %>
+    <% if(locals.shortURL){ %>
     <p>
       URL Generated:
-      <a href="<%= PROCESS.env.MONGO_URL %>"><%= PROCESS.env.MONGO_URL%></a>
+     <a href="<%= shortURL %>" target="_blank"><%= shortURL %></a>
     </p>
     <% } %>
 
