@@ -12,6 +12,16 @@
   </head>
   <body>
     <h1>URL Shortener</h1>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <% if (locals.user) { %>
+      <p>User: <%= locals.user.email %></p>
+      <form method="get" action="/user/logout">
+        <button type="submit">Logout</button>
+      </form>
+      <% } %>
+    </div>
     <div>
       <form method="POST" action="/url">
         <label>Enter Your Original URL</label>
